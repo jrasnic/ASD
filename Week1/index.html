@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<!-- Justin Rasnic
+	 MIU 1209
+	 Project 4 Gold App
+	 index.html -->
+
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="A web app that saves game ratings and keeps track of the games you own or want to buy!" />
+	<meta name="keywords" content="game, video game, games, video games, ratings" />
+	<meta name="robots" content="index, follow" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="MobileOptimized" content="320" />
+	<meta name="viewport" content="user-scalable=no, width=device-width" />
+	<meta http-equiv="cleartype" content="on" />
+	<title>Game Rating Library</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<link href="css/styles.css" rel="stylesheet" type="text/css" />	
+	<script src="js/libs/modernizr.custom.89414.js"></script>
+
+</head>
+<body>
+	<div data-role="page" id="homepage">
+		<div data-role="header" data-theme="a" data-position="fixed">
+			<img src="images/small-logo.png" id="homeheader" class="small-logo" />			
+		</div>
+		<div data-role="content">
+			<div>
+				<img src="images/logo.png" id="logo" />
+				<p>Create a library of game ratings!</p> 
+				<p>
+					<a href="#additem" data-role="button" class="mybutton">Add Games Now!</a>
+				</p>
+			</div>
+			</br>
+
+			<!--feature-->
+			<div id="featurespace">
+				<h2 id="fgame" >Featured Game</h2>
+				<ul data-role="listview" data-inset="true" data-theme="b">
+					<li><a href="#feature"><img src="images/GW2.jpg" /><h3>Guild Wars 2</h3><p>A modern, refreshing</p><p>take on the MMO genre!</p></a></li>
+				</ul>
+			</div>
+			</br>
+
+			<!-- <div>
+				<h2>Search</h2>
+				<form action="" method="post" id="search form">
+					<input type="search" id="searchfield" />
+					<input type="submit" value="Go!" id="searchsubmit" />
+				</form>
+			</div> -->
+			<div>
+				<ul data-role="listview"  data-theme="a" data-filter="true">
+					<li data-role="list-divider">Browse</li>
+					<li class="browse">
+						<a href="#action" >
+							<img src="images/Action-Adventure.png" />
+							<h3>Action-Adventure</h3>
+							<span class="ui-li-count">5</span>
+						</a>
+					</li>
+					<li class="browse">
+						<a href="#fighting" >
+							<img src="images/Fighting.png" />
+							<h3>Fighting</h3>
+							<span class="ui-li-count">1</span>
+						</a>
+					</li>
+					<li class="browse">
+						<a href="#fps" >
+							<img src="images/FPS.png" />
+							<h3>FPS</h3>
+							<span class="ui-li-count">3</span>
+						</a>
+					</li>
+					<li class="browse">
+						<a href="#platformer" >
+							<img src="images/Platformer.png" />
+							<h3>Platformer</h3>
+							<span class="ui-li-count">1</span>
+						</a>
+					</li>
+					<li class="browse">
+						<a href="#puzzle">
+							<img src="images/Puzzle.png" />
+							<h3>Puzzle</h3>
+							<span class="ui-li-count">3</span>
+						</a>
+					</li>
+					<li class="browse">
+						<a href="#rpg" >
+							<img src="images/RPG.png" />
+							<h3>RPG</h3>
+							<span class="ui-li-count">3</span>
+						</a>
+					</li>
+					<li class="browse">
+						<a href="#simulation">
+							<img src="images/Simulation.png" />
+							<h3>Simulation</h3>
+							<span class="ui-li-count">1</span>
+						</a>
+					</li>
+					<li class="browse">
+						<a href="#sports" >
+							<img src="images/Sports.png" />
+							<h3>Sports</h3>
+							<span class="ui-li-count">1</span>
+						</a>
+					</li>
+					<li class="browse">
+						<a href="#strategy" >
+							<img src="images/Strategy.png" />
+							<h3>Strategy</h3>
+							<span class="ui-li-count">2</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-icon="home">Home</a></li>
+					<li><a href="#additem" data-icon="plus">Add Game</a></li>
+					<li><a href="../AppB/index.html" data-ajax="false" data-icon="refresh">App B</a></li>
+					<li><a href="http://jrasnic.github.com/MiU/Week4/AppA/" data-ajax="false" data-icon="check">gh Pages</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" data-add-back-btn="true" id="action" >
+		<div data-role="header" data-position="fixed">
+		
+			<img src="images/small-logo.png" class="small-logo" />
+		</div>
+		<div data-role="content">
+			<div data-role="collapsible-set">
+				<div data-role="collapsible">
+					<h3>Grand Theft Auto IV</h3>
+					<p>
+						<ul>
+							<li>Release Date: 2008-04-29</li>
+							<li>Platforms: Windows, Playstation 3, Xbox 360</li>
+							<li>Quality: 80</li>
+							<li>Recommendation: Rent/Borrow</li>
+							<li>Notes: Interesting Story, Clunky Mechanics</li>
+						</ul>
+					</p>
+				</div>
+				<div data-role="collapsible">
+					<h3>L.A. Noire</h3>
+					<p>
+						<ul>
+							<li>Release Date: 2011-05-17</li>
+							<li>Platforms: Windows, Playstation 3, Xbox 360</li>
+							<li>Quality: 91</li>
+							<li>Recommendation: Buy!</li>
+							<li>Notes: Outstanding storytelling and great gameplay</li>
+						</ul>
+					</p>
+				</div>
+				<div data-role="collapsible">
+					<h3>Uncharted 3: Drake's Deception</h3>
+					<p>
+						<ul>
+							<li>Release Date: 2011-11-01</li>
+							<li>Platforms: Playstation 3</li>
+							<li>Quality: 96</li>
+							<li>Recommendation: Buy!</li>
+							<li>Notes: Amazing cinematic experience.</li>
+						</ul>
+					</p>
+				</div>
+				<div data-role="collapsible">
+					<h3>Amnesia: The Dark Descent</h3>
+					<p>
+						<ul>
+							<li>Release Date: 2008-09-08</li>
+							<li>Platforms: Windows, Mac</li>
+							<li>Quality: 89</li>
+							<li>Recommendation: Buy!</li>
+							<li>Notes: Ambient survival/horror; multiple endings</li>
+						</ul>
+					</p>
+				</div>
+				<div data-role="collapsible">
+					<h3>Batman: Arkham City</h3>
+					<p>
+						<ul>
+							<li>Release Date: 2011-10-18</li>
+							<li>Platforms: Windows, Playstation 3, Xbox 360</li>
+							<li>Quality: 90</li>
+							<li>Recommendation: Buy!</li>
+							<li>Notes: It's Batman</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-ajax="false" data-icon="home">Home</a></li>
+					<li><a href="#additem" data-icon="plus">Add Game</a></li>
+					<li><a href="../AppB/index.html" data-ajax="false" data-icon="refresh">App B</a></li>
+					<li><a href="http://jrasnic.github.com/MiU/Week4/AppA/" data-ajax="false" data-icon="check">gh Pages</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" data-add-back-btn="true" id="fighting">
+		<div data-role="header" data-position="fixed">
+			
+			<img src="images/small-logo.png" class="small-logo" />
+		</div>
+		<div data-role="content">
+			<p>Coming Soon</p>
+		</div>
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-ajax="false" data-icon="home">Home</a></li>
+					<li><a href="#additem" data-icon="plus">Add Game</a></li>
+					<li><a href="../AppB/index.html" data-ajax="false" data-icon="refresh">App B</a></li>
+					<li><a href="http://jrasnic.github.com/MiU/Week4/AppA/" data-ajax="false" data-icon="check">gh Pages</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" data-add-back-btn="true" id="fps">
+		<div data-role="header" data-position="fixed">
+			
+			<img src="images/small-logo.png" class="small-logo" />
+		</div>
+		<div data-role="content">
+			<p>Coming Soon</p>
+		</div>
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-ajax="false" data-icon="home">Home</a></li>
+					<li><a href="#additem" data-icon="plus">Add Game</a></li>
+					<li><a href="../AppB/index.html" data-ajax="false" data-icon="refresh">App B</a></li>
+					<li><a href="http://jrasnic.github.com/MiU/Week4/AppA/" data-ajax="false" data-icon="check">gh Pages</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" data-add-back-btn="true" id="platformer">
+		<div data-role="header" data-position="fixed">
+			
+			<img src="images/small-logo.png" class="small-logo" />
+		</div>
+		<div data-role="content">
+			<p>Coming Soon</p>
+		</div>
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-ajax="false" data-icon="home">Home</a></li>
+					<li><a href="#additem" data-icon="plus">Add Game</a></li>
+					<li><a href="../AppB/index.html" data-ajax="false" data-icon="refresh">App B</a></li>
+					<li><a href="http://jrasnic.github.com/MiU/Week4/AppA/" data-ajax="false" data-icon="check">gh Pages</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" data-add-back-btn="true" id="puzzle">
+		<div data-role="header" data-position="fixed">
+			
+			<img src="images/small-logo.png" class="small-logo" />
+		</div>
+		<div data-role="content">
+			<p>Coming Soon</p>
+		</div>
+	</div>
+
+	<div data-role="page" data-add-back-btn="true" id="rpg">
+		<div data-role="header" data-position="fixed">
+			
+			<img src="images/small-logo.png" class="small-logo" />
+		</div>
+		<div data-role="content">
+			<p>Coming Soon</p>
+		</div>
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-ajax="false" data-icon="home">Home</a></li>
+					<li><a href="#additem" data-icon="plus">Add Game</a></li>
+					<li><a href="../AppB/index.html" data-ajax="false" data-icon="refresh">App B</a></li>
+					<li><a href="http://jrasnic.github.com/MiU/Week4/AppA/" data-ajax="false" data-icon="check">gh Pages</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" data-add-back-btn="true" id="simulation">
+		<div data-role="header" data-position="fixed">
+			
+			<img src="images/small-logo.png" class="small-logo" />
+		</div>
+		<div data-role="content">
+			<p>Coming Soon</p>
+		</div>
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-ajax="false" data-icon="home">Home</a></li>
+					<li><a href="#additem" data-icon="plus">Add Game</a></li>
+					<li><a href="../AppB/index.html" data-ajax="false" data-icon="refresh">App B</a></li>
+					<li><a href="http://jrasnic.github.com/MiU/Week4/AppA/" data-ajax="false" data-icon="check">gh Pages</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" data-add-back-btn="true" id="sports">
+		<div data-role="header" data-position="fixed">
+			
+			<img src="images/small-logo.png" class="small-logo" />
+		</div>
+		<div data-role="content">
+			<p>Coming Soon</p>
+		</div>
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-ajax="false" data-icon="home">Home</a></li>
+					<li><a href="#additem" data-icon="plus">Add Game</a></li>
+					<li><a href="../AppB/index.html" data-ajax="false" data-icon="refresh">App B</a></li>
+					<li><a href="http://jrasnic.github.com/MiU/Week4/AppA/" data-ajax="false" data-icon="check">gh Pages</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" data-add-back-btn="true" id="strategy">
+		<div data-role="header" data-position="fixed">
+			
+			<img src="images/small-logo.png" class="small-logo" />
+		</div>
+		<div data-role="content">
+			<p>Coming Soon</p>
+		</div>
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-ajax="false" data-icon="home">Home</a></li>
+					<li><a href="#additem" data-icon="plus">Add Game</a></li>
+					<li><a href="../AppB/index.html" data-ajax="false" data-icon="refresh">App B</a></li>
+					<li><a href="http://jrasnic.github.com/MiU/Week4/AppA/" data-ajax="false" data-icon="check">gh Pages</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" data-add-back-btn="true" id="feature">
+		<div data-role="header" data-position="fixed">
+			
+			<img src="images/small-logo.png" class="small-logo" />
+		</div>
+		<div data-role="content">
+			<ul>
+				<li>Name: Guild Wars 2</li>
+				<li>Genre: RPG</li>
+				<li>Release Date: 2012-08-28</li>
+				<li>Platform: Windows</li>
+				<li>Quality: 100</li>
+				<li>Recommendation: Buy!</li>
+				<li>Notes: A modern, refreshing twist on the already popular MMORPG genre.</li>
+				<li><img src="images/GW2.jpg" /></li>
+			</ul>
+		</div>
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-ajax="false" data-icon="home">Home</a></li>
+					<li><a href="#additem" data-icon="plus">Add Game</a></li>
+					<li><a href="../AppB/index.html" data-ajax="false" data-icon="refresh">App B</a></li>
+					<li><a href="http://jrasnic.github.com/MiU/Week4/AppA/" data-ajax="false" data-icon="check">gh Pages</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" data-add-back-btn="true" id="additem" >
+		<div data-role="header" data-position="fixed">
+			
+			<img src="images/small-logo.png" class="small-logo" />
+		</div>
+
+		<div data-role="content">
+			<form action="" method="post" id="mainform">
+
+				<p>* denotes a required field</p>
+
+				<div data-role="fieldcontain">
+					<label for="gname">*Game Name:</label>
+					<input type="text" name="gname" id="gname" class="required" />
+				</div>
+
+				<div data-role="fieldcontain">
+					<label for="genre">Genre:</label>
+					<select name="genre" id="genre" data-native-menu="true"  /> <!-- problem with plugin, not making this field required -->
+						<option data-placeholder="true">--Choose a Genre--</option>
+						<option value="Action-Adventure">Action-Adventure</option>
+						<option value="Fighting">Fighting</option>
+						<option value="FPS">FPS</option>
+						<option value="Platformer">Platformer</option>
+						<option value="Puzzle">Puzzle</option>
+						<option value="RPG">RPG</option>
+						<option value="Simulation">Simulation</option>
+						<option value="Sports">Sports</option>
+						<option value="Strategy">Strategy</option>
+					</select>
+				</div>
+
+				<div data-role="fieldcontain">
+					<label for="releasedate">*Release Date:</label>
+					<input type="date" name="releasedate" id="releasedate" class="required" />
+				</div>
+
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<legend>*What platform(s) is the game on?</legend>
+						<input type="checkbox" value="Playstation 3" name="platforms" id="platforms-ps3" class="required" />
+						<label for="platforms-ps3">Playstation 3</label>
+						<input type="checkbox" value="Xbox 360" name="platforms" id="platforms-xbox360" />
+						<label for="platforms-xbox360">Xbox 360</label>
+						<input type="checkbox" value="Nintendow Wii" name="platforms" id="platforms-wii" />
+						<label for="platforms-wii">Nintendo Wii</label>
+						<input type="checkbox" value="Windows" name="platforms" id="platforms-windows" />
+						<label for="platforms-windows">Windows</label>
+						<input type="checkbox" value="Mac" name="platforms" id="platforms-mac" />
+						<label for="platforms-mac">Mac</label>
+						<input type="checkbox" value="iOS" name="platforms" id="platforms-ios" />
+						<label for="platforms-ios">iOS</label>
+						<input type="checkbox" value="Android" name="platforms" id="platforms-android" />
+						<label for="platforms-android">Android</label>
+					</fieldset>
+				</div>
+
+				<div data-role="fieldcontain">
+					<label for="quality">How would you rate the quality of this game?</label>
+					<input type="range" name="quality" id="quality" value="50" min="0" max="100" />
+				</div>
+
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup" class="required">
+						<legend>*Your recommendation:</legend>
+						<input type="radio" value="Buy" name="recommendation" id="recommendation-buy" class="required"/>
+						<label for="recommendation-buy">Buy</label>
+						<input type="radio" value="Rent/Borrow" name="recommendation" id="recommendation-rent" />
+						<label for="recommendation-rent">Rent/Borrow</label>
+						<input type="radio" value="Skip" name="recommendation" id="recommendation-skip" />
+						<label for="recommendation-skip">Skip</label>
+					</fieldset>
+				</div>
+				
+				<div data-role="fieldcontain">
+					<label for ="notes">Notes:</label>
+					<textarea name="notes" id="notes"></textarea>
+				</div>
+
+				<div data-role="fieldcontain">
+					<input type="submit" value="Add Game" data-theme="b" /></br>
+					<input type="reset" value="Reset" data-theme="a" />
+				</div>
+
+				<a href="#errors" id="errorslink" data-rel="dialog">Open errors</a>
+
+			</form>
+		</div>
+
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-ajax="false" data-icon="home">Home</a></li>
+					<li><a href="#additem" data-icon="plus">Add Game</a></li>
+					<li><a href="../AppB/index.html" data-ajax="false" data-icon="refresh">App B</a></li>
+					<li><a href="http://jrasnic.github.com/MiU/Week4/AppA/" data-ajax="false" data-icon="check">gh Pages</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="dialogue" id="errors">
+		<div data-role="header" data-position="fixed">
+			<h1>Missing Fields</h1>
+		</div>
+
+		<div data-role="content">
+			<ul>
+				<li>test</li>
+			</ul>
+		</div>
+	</div>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>

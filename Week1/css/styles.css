@@ -1,0 +1,145 @@
+/* Justin Rasnic
+MIU 1209
+Project 4 Gold App
+CSS styles*/
+
+#errorslink{
+	display:none;
+}
+
+label.error{
+	display: block;
+	margin: 10px 0px;
+	color: red;
+}
+
+p{
+	margin-top: 0px;
+	text-align: center;
+}
+
+#homepage .ui-grid-b div{
+	text-align: center;
+}
+
+h1{
+	font-family: Eurostile, Arial Black, Arial, sans-serif;
+	
+}
+
+body{
+	font-family: Eurostile, Arial, sans-serif;
+}
+
+.mybutton .ui-li-desc{
+	font-size: 14px;
+	text-shadow: 0 1px 0 black;
+	font-weight: bold;
+	font-family: Eurostile, Arial, sans-serif;
+	color: #F3F7FB;
+}
+
+.mybutton .ui-li-heading{
+	font-size: 18px;
+	text-shadow: 0 1px 0 black;
+	font-weight: bold;
+	font-family: Eurostile, Arial, sans-serif;
+	color: #F3F7FB;
+}
+
+.mybutton .ui-btn-text{
+	font-size: 20px;
+	text-shadow: 0 1px 0 black;
+	font-weight: bold;
+	font-family: Eurostile, Arial, sans-serif;
+	color: #F3F7FB;
+}
+
+.mybutton{
+	background: #a7cfdf; /* Old browsers */
+	background: -moz-linear-gradient(top, #a7cfdf 0%, #23538a 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a7cfdf), color-stop(100%,#23538a)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #a7cfdf 0%,#23538a 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #a7cfdf 0%,#23538a 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #a7cfdf 0%,#23538a 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a',GradientType=0 ); /* IE6-9 */
+} 
+
+.ui-page{
+	background: #BBC2CE;
+}
+
+li{
+	margin-bottom: 3px;
+	text-align: left;
+	list-style: none;
+	margin-left: -10px;
+}
+
+#homepage{
+	text-align: center;
+}
+
+#fgame{
+	margin-top: 0px;
+	text-align: left;
+}
+
+#featurespace{
+	margin-bottom: 30px;
+}
+
+#logo{
+	margin-top: -10px;
+	margin-bottom: -20px;
+	margin-left: -15px;
+}
+
+.small-logo{
+	margin-top: 10px;
+	/*margin-left: 80px;*/
+}
+
+/*#homeheader{
+	margin-left: 20px;
+}*/
+
+.ui-header{
+	text-align: center;
+}
+
+section{
+	text-align: center;
+	margin-top: 0px;
+}
+
+
+#cta{
+	/*border-radius: 10px;
+	width: 300px;
+	background-color: #F3F7FB;
+	margin-top: 10px;
+	margin-bottom: 10px;*/
+	text-decoration: none;
+	font-family: Eurostile, Arial Black, Arial, sans-serif;
+	/*font-weight: bold;
+	font-size: 28px;
+	color: #185EB4;*/
+}
+
+#cta:visited{
+	text-decoration: none;
+	font-family: Eurostile, Arial Black, Arial, sans-serif;
+	/*font-weight: bold;
+	font-size: 28px;
+	color: #185EB4;*/
+}
+
+#submit{
+	/*width: 200px;
+	font-size: 16px;*/
+	font-family: Eurostile, Arial, sans-serif;
+	/*position: absolute;
+	left: 60px;*/
+}
