@@ -9,32 +9,31 @@ $('#home').on('pageinit', function(){
 		
 $('#additem').on('pageinit', function(){
 
-
 	delete $.validator.methods.date;
 
-		var myForm = $('#mainform'),
-			errorslink = $('#errorslink')
-			;
+	var myForm = $('#mainform'),
+		errorslink = $('#errorslink')
+		;
 
-		    myForm.validate({
-			invalidHandler: function(form, validator) {
-				errorslink.click();				
-				var html = '';
-				$("#errors ul").html("");
-				for(var key in validator.submitted){
-					var label = $('label[for^="'+ key +'"]').not('[generated]');
-					var legend = label.closest('fieldset').find('.ui-controlgroup-label');
-					var fieldname = legend.length ? legend.text() : label.text();
-					html += '<li>' + fieldname +'</li>';
-				};
-				$("#errors ul").html(html);
-				window.scrollTo(0,50);
-			},
-			submitHandler: function() {
-			var data = myForm.serializeArray();
-			console.log(data);
-			storeData(data);
-			}
+    	myForm.validate({
+		invalidHandler: function(form, validator) {
+			errorslink.click();				
+			var html = '';
+			$("#errors ul").html("");
+			for(var key in validator.submitted){
+				var label = $('label[for^="'+ key +'"]').not('[generated]');
+				var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+				var fieldname = legend.length ? legend.text() : label.text();
+				html += '<li>' + fieldname +'</li>';
+			};
+			$("#errors ul").html(html);
+			window.scrollTo(0,50);
+		},
+		submitHandler: function() {
+		var data = myForm.serializeArray();
+		console.log(data);
+		storeData(data);
+		}
 		});
 	
 	//any other code needed for addItem page goes here
@@ -80,33 +79,24 @@ var storeData = function(data){
 		
 	getPlatformValues();
 	//getRecommendationValue();
-	var item = [];
+	var item = {};
 	for(var key in data){
 		var itemName = data[key].name;
 		var itemValue = data[key].value;		
-		var checkboxValues = [];
 		var label = $('label[for^="'+ itemName +'"]').not('[generated]');
 		var legend = label.closest('fieldset').find('.ui-controlgroup-label');
 		var fieldname = legend.length ? legend.text() : label.text();
 		if(itemName === "platforms"){						
-			if(itemName != data[key-1].name){
-				item[key] = [fieldname, platformValues];
-				var placeholder = key;
-				placeholder++;
-				var remove = platformValues.length - 1;
-			}
-
+			item[itemName] = [fieldname, platformValues];
 		} else{
-			item[key] = [fieldname, itemValue];
+			item[itemName] = [fieldname, itemValue];
 		}
 		console.log(key);
 	};
 	
-	item.splice(placeholder,remove);
+	//item.splice(placeholder,remove);
 	localStorage.setItem(id, JSON.stringify(item));
 	alert("Rating Saved!");	
-	console.log(placeholder);
-	console.log(remove);
 	console.log(localStorage);
 }; 
 
