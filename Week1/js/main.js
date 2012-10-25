@@ -40,6 +40,10 @@ $('#additem').on('pageinit', function(){
 	
 });
 
+$('#displaydata').on('pageinit', function(){
+	getData();
+});	
+
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
 
 var platformValues = [];
@@ -49,8 +53,51 @@ var autofillData = function (){
 	 
 };
 
-var getData = function(){
+function getImage(catName, makeSubList){
+	var imgli = document.createElement("li");
+	makeSubList.appendChild(imgli);
+	var newImg = document.createElement("img");
+	var setSrc = newImg.setAttribute("src", "images/" + catName + ".png");
+	imgli.appendChild(newImg);
 
+};
+
+var getData = function(){
+	//if no data in local storage, use json data...would not leave in final product
+	if(localStorage.length === 0){
+		var ask = confirm("No ratings saved. Do you want to load test data?");
+		if (ask){
+			autoFillData();
+		};
+	};
+
+	var makeDiv = document.createElement("div");
+	makeDiv.setAttribute("id", "items");
+	var makeList = document.createElement("ul");
+	makeList.setAttribute("id", "itemslist");
+	makeDiv.appendChild(makeList);
+	$('#data').append(makeDiv);
+	$('#items').show;
+	for(i=0, j=localStorage.length; i<j; i++){
+		var makeLi = document.createElement("li");
+		var linksLi = document.createElement("li");
+		makeLi.setAttribute("id", "displaylist");
+		makeList.appendChild(makeLi);
+		var key = localStorage.key(i);
+		var value = localStorage.getItem(key);
+		var obj = JSON.parse(value);
+		var makeSubList = document.createElement("ul");
+		makeLi.appendChild(makeSubList);
+		getImage(obj.genre[1],makeSubList);
+		for(var n in obj){
+			var makeSubLi = document.createElement("li");
+			makeSubList.appendChild(makeSubLi);
+			var optSubText = obj[n][0] + obj[n][1];
+			makeSubLi.innerHTML = optSubText;
+			makeSubList.appendChild(linksLi);
+		};
+		//makeItemLinks(localStorage.key(i), linksLi);
+	};
 };
 
 // get Element shortcut
