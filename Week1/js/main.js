@@ -1,6 +1,6 @@
 // Justin Rasnic
-// MiU 1209
-// Project 4 Gold App
+// ASD 1211
+// Project 1
 // Main JS using ASD template
 
 $('#home').on('pageinit', function(){
