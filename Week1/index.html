@@ -126,7 +126,7 @@
 				<ul>
 					<li><a href="index.html" data-icon="home">Home</a></li>
 					<li><a href="#additem" data-icon="plus">Add Game</a></li>
-					<li><a href="#displaydata" data-icon="grid">View</a></li>					
+					<li><a href="#displaydata" data-icon="grid" id="displaylink" >View</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -206,7 +206,7 @@
 				<ul>
 					<li><a href="index.html" data-icon="home">Home</a></li>
 					<li><a href="#additem" data-icon="plus">Add Game</a></li>
-					<li><a href="#displaydata" data-icon="grid">View</a></li>					
+					<li><a href="#displaydata" data-icon="grid" id="displaylink" >View</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -225,7 +225,7 @@
 				<ul>
 					<li><a href="index.html" data-icon="home">Home</a></li>
 					<li><a href="#additem" data-icon="plus">Add Game</a></li>
-					<li><a href="#displaydata" data-icon="grid">View</a></li>					
+					<li><a href="#displaydata" data-icon="grid" id="displaylink" >View</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -244,7 +244,7 @@
 				<ul>
 					<li><a href="index.html" data-icon="home">Home</a></li>
 					<li><a href="#additem" data-icon="plus">Add Game</a></li>
-					<li><a href="#displaydata" data-icon="grid">View</a></li>					
+					<li><a href="#displaydata" data-icon="grid" id="displaylink" >View</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -263,7 +263,7 @@
 				<ul>
 					<li><a href="index.html" data-icon="home">Home</a></li>
 					<li><a href="#additem" data-icon="plus">Add Game</a></li>
-					<li><a href="#displaydata" data-icon="grid">View</a></li>					
+					<li><a href="#displaydata" data-icon="grid" id="displaylink" >View</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -282,7 +282,7 @@
 				<ul>
 					<li><a href="index.html" data-icon="home">Home</a></li>
 					<li><a href="#additem" data-icon="plus">Add Game</a></li>
-					<li><a href="#displaydata" data-icon="grid">View</a></li>					
+					<li><a href="#displaydata" data-icon="grid" id="displaylink" >View</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -301,7 +301,7 @@
 				<ul>
 					<li><a href="index.html" data-icon="home">Home</a></li>
 					<li><a href="#additem" data-icon="plus">Add Game</a></li>
-					<li><a href="#displaydata" data-icon="grid">View</a></li>					
+					<li><a href="#displaydata" data-icon="grid" id="displaylink" >View</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -320,7 +320,7 @@
 				<ul>
 					<li><a href="index.html" data-icon="home">Home</a></li>
 					<li><a href="#additem" data-icon="plus">Add Game</a></li>
-					<li><a href="#displaydata" data-icon="grid">View</a></li>					
+					<li><a href="#displaydata" data-icon="grid" id="displaylink" >View</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -339,7 +339,7 @@
 				<ul>
 					<li><a href="index.html" data-icon="home">Home</a></li>
 					<li><a href="#additem" data-icon="plus">Add Game</a></li>
-					<li><a href="#displaydata" data-icon="grid">View</a></li>					
+					<li><a href="#displaydata" data-icon="grid" id="displaylink" >View</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -358,7 +358,7 @@
 				<ul>
 					<li><a href="index.html" data-icon="home">Home</a></li>
 					<li><a href="#additem" data-icon="plus">Add Game</a></li>
-					<li><a href="#displaydata" data-icon="grid">View</a></li>					
+					<li><a href="#displaydata" data-icon="grid" id="displaylink" >View</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -386,7 +386,7 @@
 				<ul>
 					<li><a href="index.html" data-icon="home">Home</a></li>
 					<li><a href="#additem" data-icon="plus">Add Game</a></li>
-					<li><a href="#displaydata" data-icon="grid">View</a></li>					
+					<li><a href="#displaydata" data-icon="grid" id="displaylink" >View</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -404,12 +404,12 @@
 				<p>* denotes a required field</p>
 
 				<div data-role="fieldcontain">
-					<label for="gname">*Game Name:</label>
+					<label for="gname">*Game Name: </label>
 					<input type="text" name="gname" id="gname" class="required" />
 				</div>
 
 				<div data-role="fieldcontain">
-					<label for="genre">*Genre:</label>
+					<label for="genre">*Genre: </label>
 					<select name="genre" id="genre" data-native-menu="true"  class="required"/> <!-- problem with plugin, not making this field required -->
 						<option value="" data-placeholder="true">--Choose a Genre--</option>
 						<option value="Action-Adventure">Action-Adventure</option>
@@ -425,38 +425,38 @@
 				</div>
 
 				<div data-role="fieldcontain">
-					<label for="releasedate">Release Date:</label>
+					<label for="releasedate">Release Date: </label>
 					<input type="date" name="releasedate" id="releasedate" />
 				</div>
 
 				<div data-role="fieldcontain">
-					<fieldset data-role="controlgroup">
-						<legend>*Platform(s):</legend>
-						<input type="checkbox" value="Playstation 3" name="platforms" id="platforms-ps3" class="required" />
+					<fieldset data-role="controlgroup" id="checkboxes">
+						<legend>*Platform(s): </legend>
+						<input type="checkbox" value=" Playstation 3" name="platforms" id="platforms-ps3" class="required" />
 						<label for="platforms-ps3">Playstation 3</label>
-						<input type="checkbox" value="Xbox 360" name="platforms" id="platforms-xbox360" />
+						<input type="checkbox" value=" Xbox 360" name="platforms" id="platforms-xbox360" />
 						<label for="platforms-xbox360">Xbox 360</label>
-						<input type="checkbox" value="Nintendow Wii" name="platforms" id="platforms-wii" />
+						<input type="checkbox" value=" Nintendo Wii" name="platforms" id="platforms-wii" />
 						<label for="platforms-wii">Nintendo Wii</label>
-						<input type="checkbox" value="Windows" name="platforms" id="platforms-windows" />
+						<input type="checkbox" value=" Windows" name="platforms" id="platforms-windows" />
 						<label for="platforms-windows">Windows</label>
-						<input type="checkbox" value="Mac" name="platforms" id="platforms-mac" />
+						<input type="checkbox" value=" Mac" name="platforms" id="platforms-mac" />
 						<label for="platforms-mac">Mac</label>
-						<input type="checkbox" value="iOS" name="platforms" id="platforms-ios" />
+						<input type="checkbox" value=" iOS" name="platforms" id="platforms-ios" />
 						<label for="platforms-ios">iOS</label>
-						<input type="checkbox" value="Android" name="platforms" id="platforms-android" />
+						<input type="checkbox" value=" Android" name="platforms" id="platforms-android" />
 						<label for="platforms-android">Android</label>
 					</fieldset>
 				</div>
 
 				<div data-role="fieldcontain">
-					<label for="quality">*Quality:</label>
+					<label for="quality">*Quality: </label>
 					<input type="range" name="quality" id="quality" min="0" max="100" class="required" />
 				</div>
 
 				<div data-role="fieldcontain">
 					<fieldset data-role="controlgroup" class="required">
-						<legend>*Your recommendation:</legend>
+						<legend>*Your recommendation: </legend>
 						<input type="radio" value="Buy" name="recommendation" id="recommendation-buy" class="required"/>
 						<label for="recommendation-buy">Buy</label>
 						<input type="radio" value="Rent/Borrow" name="recommendation" id="recommendation-rent" />
@@ -467,7 +467,7 @@
 				</div>
 				
 				<div data-role="fieldcontain">
-					<label for ="notes">Notes:</label>
+					<label for ="notes">Notes: </label>
 					<textarea name="notes" id="notes"></textarea>
 				</div>
 
@@ -486,7 +486,7 @@
 				<ul>
 					<li><a href="index.html" data-icon="home">Home</a></li>
 					<li><a href="#additem" data-icon="plus">Add Game</a></li>
-					<li><a href="#displaydata" data-icon="grid">View</a></li>					
+					<li><a href="#displaydata" data-icon="grid" id="displaylink" >View</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -509,7 +509,7 @@
 		</div>
 		<div data-role="content" id="data">
 
-
+			<a href="#homepage" data-role="button" id="clearbutton" class="mybutton">Clear All Data</a>
 
 		</div>
 		<div data-role="footer" data-theme="b" data-position="fixed">
@@ -517,7 +517,7 @@
 				<ul>
 					<li><a href="index.html" data-icon="home">Home</a></li>
 					<li><a href="#additem" data-icon="plus">Add Game</a></li>
-					<li><a href="#displaydata" data-icon="grid">View</a></li>					
+					<li><a href="#displaydata" data-icon="grid" id="displaylink" >View</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -525,6 +525,7 @@
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
 <script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/json.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 
 </body>

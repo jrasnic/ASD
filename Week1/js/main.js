@@ -40,17 +40,26 @@ $('#additem').on('pageinit', function(){
 	
 });
 
-$('#displaydata').on('pageinit', function(){
+$('#displaylink').on('click', function(){
 	getData();
 });	
+
+$('#clearbutton').on('click', function(){
+	clearLocal();
+});
+
+
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
 
 var platformValues = [];
 var j;
 
-var autofillData = function (){
-	 
+var autofillData = function (){	
+	for(var n in json){
+		var id = Math.floor(Math.random()*10000001);
+		localStorage.setItem(id, JSON.stringify(json[n]));
+	};	 
 };
 
 function getImage(catName, makeSubList){
@@ -67,10 +76,11 @@ var getData = function(){
 	if(localStorage.length === 0){
 		var ask = confirm("No ratings saved. Do you want to load test data?");
 		if (ask){
-			autoFillData();
+			autofillData();
 		};
 	};
 
+	$('#items').html('');
 	var makeDiv = document.createElement("div");
 	makeDiv.setAttribute("id", "items");
 	var makeList = document.createElement("ul");
@@ -96,19 +106,47 @@ var getData = function(){
 			makeSubLi.innerHTML = optSubText;
 			makeSubList.appendChild(linksLi);
 		};
-		//makeItemLinks(localStorage.key(i), linksLi);
+		makeItemLinks(localStorage.key(i), linksLi);
 	};
 };
 
+// create edit/delete links
+function makeItemLinks(key, linksLi){
+
+	//edit link
+	var editLink = document.createElement("a");
+	editLink.href = "#";
+	editLink.setAttribute("data-role", "button");
+	editLink.setAttribute("data-inline", "true");
+	editLink.setAttribute("data-theme", "b");		
+	editLink.key = key;
+	var editText = "Edit Game";
+	//editLink.addEventListener("click", editItem);
+	editLink.innerHTML = editText;
+	linksLi.appendChild(editLink);
+
+	//delete link
+	var deleteLink = document.createElement("a");
+	deleteLink.href = "#displaydata";
+	deleteLink.setAttribute("data-role", "button");
+	deleteLink.setAttribute("data-inline", "true");
+	deleteLink.setAttribute("data-theme", "a");
+	deleteLink.key = key;
+	var deleteText = "Delete Game";
+	$('#deletelink').on('click', function(){
+		deleteItem();
+	});
+	deleteLink.innerHTML = deleteText;
+	linksLi.appendChild(deleteLink);
+};
 // get Element shortcut
 function ge(x){
 	var element = document.getElementById(x);
 	return element;
 };
-
 // get checkbox values
 function getPlatformValues(){                      
-	var checkboxes = ge("mainform").platforms;
+	var checkboxes = ge('mainform').platforms;
 	for(i=0, j=checkboxes.length; i<j; i++){
 		if(checkboxes[i].checked){
 			var checkedValue = checkboxes[i].value;
@@ -119,11 +157,8 @@ function getPlatformValues(){
 
 var storeData = function(data){
 	
-
-
 	var id = Math.floor(Math.random()*10000001);
-		
-		
+			
 	getPlatformValues();
 	//getRecommendationValue();
 	var item = {};
@@ -148,19 +183,24 @@ var storeData = function(data){
 }; 
 
 var	deleteItem = function (){
-			
+	console.log(this.key);
+	var ask = confirm("Are you sure you want to delete this game?");
+	if (ask){
+		localStorage.removeItem(this.key);
+		alert("Game was deleted.");
+	}else{
+		alert("Game was NOT deleted.");
+	};	
 };
 					
 var clearLocal = function(){
 	if(localStorage.length === 0){
 			alert("There are no ratings to clear!");
-			window.location.reload();
 		} else{
 			var ask = confirm("Are you sure you want to cleart all saved data?");
 			if(ask){
 				localStorage.clear();
 				alert("All ratings are deleted!");
-				window.location.reload();
 			};
 			return false;
 		};
