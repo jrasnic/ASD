@@ -115,13 +115,13 @@ function makeItemLinks(key, linksLi){
 
 	//edit link
 	var editLink = document.createElement("a");
-	editLink.href = "#";
+	editLink.href = "#additem";
 	editLink.setAttribute("data-role", "button");
 	editLink.setAttribute("data-inline", "true");
 	editLink.setAttribute("data-theme", "b");		
 	editLink.key = key;
 	var editText = "Edit Game";
-	//editLink.addEventListener("click", editItem);
+	editLink.addEventListener("click", editItem);
 	editLink.innerHTML = editText;
 	linksLi.appendChild(editLink);
 
@@ -155,8 +155,11 @@ function getPlatformValues(){
 
 var storeData = function(data){
 	
-	var id = Math.floor(Math.random()*10000001);
-			
+	if(!data){
+		var id = Math.floor(Math.random()*10000001);
+	}else{
+		id = data;
+	};			
 	getPlatformValues();
 	//getRecommendationValue();
 	var item = {};
@@ -179,6 +182,53 @@ var storeData = function(data){
 	alert("Rating Saved!");	
 	console.log(localStorage);
 }; 
+
+	function editItem(){
+		var value = localStorage.getItem(this.key);
+		var item = JSON.parse(value);
+
+		//populate form
+		$("#gname").val(item.gname[1]);
+		$("#genre").val(item.genre[1]);
+		$("#releasedate").val(item.releaseDate[1]);
+
+		// find which checkboxes should be checked, and check them
+		var checkboxes = ge("mainform").platforms;
+		var selectedPlatforms = item.platforms[1];
+		for(var n=0, m=checkboxes.length; n<m; n++){
+			for(var x=0, y=selectedPlatforms.length; x<y; x++){
+				if(selectedPlatforms[x] == checkboxes[n].value){
+					checkboxes[n].setAttribute("checked", "checked");
+				};
+			};
+		};
+		$("#quality").val(item.quality[1]);	//NOT WORKING, NEED TO LOOK CLOSER
+
+		// find which radio should be checked and check it
+		var radios = ge("mainform").recommendation;
+		for(var i=0, j=radios.length; i<j; i++){
+			if(radios[i].value == "Buy" && item.recommendation[1] == "Buy"){
+				radios[i].setAttribute("checked", "checked");
+			} else if(radios[i].value == "Rent/Borrow" && item.recommendation[1] == "Rent/Borrow"){
+				radios[i].setAttribute("checked", "checked");
+			} else if(radios[i].value == "Skip" && item.recommendation[1] == "Skip"){
+				radios[i].setAttribute("checked", "checked");
+			};
+		};
+
+		$("#notes").val(item.notes[1]); 
+
+		//remove initial listener from save button
+		//save.removeEventListener("click", saveData);
+
+		//change submit button to edit button
+		$("#submit").value = "Edit Game Entry";
+		var editSubmit = $("#submit");
+		//editSubmit.addEventListener("click", storeData(this.key));
+
+		//save key value
+		editSubmit.key = this.key;
+	};
 
 var	deleteItem = function (){
 	var ask = confirm("Are you sure you want to delete this game?");
