@@ -80,7 +80,7 @@ var getData = function(){
 		};
 	};
 
-	$('#items').html('');
+	$('#data').empty();
 	var makeDiv = document.createElement("div");
 	makeDiv.setAttribute("id", "items");
 	var makeList = document.createElement("ul");
@@ -133,9 +133,7 @@ function makeItemLinks(key, linksLi){
 	deleteLink.setAttribute("data-theme", "a");
 	deleteLink.key = key;
 	var deleteText = "Delete Game";
-	$('#deletelink').on('click', function(){
-		deleteItem();
-	});
+	deleteLink.addEventListener("click", deleteItem);
 	deleteLink.innerHTML = deleteText;
 	linksLi.appendChild(deleteLink);
 };
@@ -183,11 +181,11 @@ var storeData = function(data){
 }; 
 
 var	deleteItem = function (){
-	console.log(this.key);
 	var ask = confirm("Are you sure you want to delete this game?");
 	if (ask){
 		localStorage.removeItem(this.key);
 		alert("Game was deleted.");
+		getData();
 	}else{
 		alert("Game was NOT deleted.");
 	};	
